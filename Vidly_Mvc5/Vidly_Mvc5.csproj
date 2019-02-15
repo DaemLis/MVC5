@@ -227,6 +227,14 @@
     <Compile Include="Migrations\201902150011124_AddAgainFkForCustomers.Designer.cs">
       <DependentUpon>201902150011124_AddAgainFkForCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902151302067_AddDataInMembershipTypesTable.cs" />
+    <Compile Include="Migrations\201902151302067_AddDataInMembershipTypesTable.Designer.cs">
+      <DependentUpon>201902151302067_AddDataInMembershipTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902151310585_AddDataInMembershipTypesTable1.cs" />
+    <Compile Include="Migrations\201902151310585_AddDataInMembershipTypesTable1.Designer.cs">
+      <DependentUpon>201902151310585_AddDataInMembershipTypesTable1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -347,6 +355,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902150011124_AddAgainFkForCustomers.resx">
       <DependentUpon>201902150011124_AddAgainFkForCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151302067_AddDataInMembershipTypesTable.resx">
+      <DependentUpon>201902151302067_AddDataInMembershipTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151310585_AddDataInMembershipTypesTable1.resx">
+      <DependentUpon>201902151310585_AddDataInMembershipTypesTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

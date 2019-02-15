@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using Vidly_Mvc5.Models;
 
@@ -8,42 +10,51 @@ namespace Vidly_Mvc5.Repository
 {
     public class CustomerRepository : ICustomerRepository<Customer>
     {
-        private List<Customer> context;
         public CustomerRepository()
-        {
-            context = new List<Customer>
-                {
-                  new Customer { Id = 1, Name = "John Smith"},
-                  new Customer { Id = 2, Name = "Mary Williams"},
-                  new Customer { Id = 3, Name = "Artur John"},
-                  new Customer { Id = 4, Name = "Johnatan Nollan"},
-                  new Customer { Id = 5, Name = "Morgan Freeman"},
-                  new Customer { Id = 6, Name = "Megan Sank"},
-                  new Customer { Id = 7, Name = "Tidy Mark"},
-                  new Customer { Id = 8, Name = "William Colian"},
-                  new Customer { Id = 9, Name = "Ihitay Mike"},
-                };
+        {              
         }
 
-        public void CreateCustomer(Customer customer)
+        public async Task<IEnumerable<Customer>> GetAll()
         {
-            context.Add(customer);
-        }
+            var result = new List<Customer>();
 
-        public void DeleteCustomer(int id)
-        { 
-            context.Remove(context.Find(find => find.Id == id));
-        }
+            using (var customerContext = new ApplicationDbContext())
+            {
+                result = await customerContext.Customers.ToListAsync();
+            }
 
-        public IEnumerable<Customer> GetAll()
+            return result;
+        }
+        public async Task<Customer> CreateCustomer(Customer customer)
         {
-            return context;
-        }
+            Customer result = null;
 
-        public void UpdateCustomer(Customer customer)
+            using (var customerContext = new ApplicationDbContext())
+            {
+                result = customerContext.Customers.Add(customer);
+                await customerContext.SaveChangesAsync();
+            }
+
+            return result;
+        }
+        public async Task DeleteCustomer(int id)
         {
-            var _customer = context.Find(find => find.Id == customer.Id);
-            _customer.Name = customer.Name;
+            using (var customerContext = new ApplicationDbContext())
+            {
+                var customer = await customerContext.Customers.FirstOrDefaultAsync(find => find.Id == id);
+                customerContext.Entry(customer).State = EntityState.Deleted;
+                await customerContext.SaveChangesAsync();
+            }
+        }
+        public async Task<Customer> UpdateCustomer(Customer customer)
+        {
+            using (var customerContext = new ApplicationDbContext())
+            {
+                customerContext.Entry(customer).State = EntityState.Modified;
+                await customerContext.SaveChangesAsync();
+            }
+
+            return customer;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vidly_Mvc5.Repository
 {
-    interface IMovieRepository<T> where T : class
+    public interface IMovieRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
         void CreateMovie(T movie);

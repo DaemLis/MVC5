@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Vidly_Mvc5.Repository
 {
-    interface ICustomerRepository<T> where T : class
+    public interface ICustomerRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        void CreateCustomer(T customer);
-        void UpdateCustomer(T customer);
-        void DeleteCustomer(int id);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> CreateCustomer(T customer);
+        Task<T> UpdateCustomer(T customer);
+        Task DeleteCustomer(int id);
     }
 }

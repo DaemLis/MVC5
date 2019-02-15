@@ -159,7 +159,6 @@ d:\Development\Vidly_Mvc5\Vidly_Mvc5\bin\Microsoft.Owin.Security.OAuth.xml
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\bin\Microsoft.Owin.Security.Google.xml
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\bin\Microsoft.Owin.Security.Twitter.xml
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csprojResolveAssemblyReference.cache
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.dll
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.pdb
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.InitialModel.resources
@@ -170,3 +169,6 @@ d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.PopulateMem
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.ApplyAnnotationsToCustomerFKmembershipTypes.resources
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.DropColumnCustomer.resources
 d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddAgainFkForCustomers.resources
+d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddDataInMembershipTypesTable.resources
+d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddDataInMembershipTypesTable1.resources
+d:\Development\Vidly_Mvc5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csprojResolveAssemblyReference.cache

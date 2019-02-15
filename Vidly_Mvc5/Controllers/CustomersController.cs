@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_Mvc5.Models;
@@ -10,29 +11,29 @@ namespace Vidly_Mvc5.Controllers
 {
     public class CustomersController : Controller
     {
-        IUnitOfWork unitOfWork;
-        ICustomerRepository<Customer> customers;
+        private readonly IUnitOfWork unitOfWork;
+        //private readonly ICustomerRepository customers;
         // GET: Customers
 
         public CustomersController()
         {
             unitOfWork = new UnitOfWork();
-            customers = unitOfWork.Customers;
         }
 
-        public ActionResult AllCustomers()
+        public async Task<ActionResult> AllCustomers()
         {
-            var customersList = customers.GetAll().ToList();
-           
+            var customersList = await unitOfWork.Customers.GetAll();
+            //todo получить клиентов
+         
             return View(customersList);
         }
 
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id.HasValue)
             {
-                var customerList = customers.GetAll().ToList();
-                var customer = customerList.Find(result => result.Id == id);
+                var customerList = await unitOfWork.Customers.GetAll();
+                var customer = customerList.FirstOrDefault(find => find.Id == id);
 
                 return View(customer);
             }
