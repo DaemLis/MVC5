@@ -4,51 +4,76 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_Mvc5.Models;
+using Vidly_Mvc5.Repository;
 using Vidly_Mvc5.ViewModels;
 
 namespace Vidly_Mvc5.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movie
-        public ActionResult Random()
+
+        IUnitOfWork unitOfWork; // direct reference to UoW pattern
+        IMovieRepository<Movie> movies; // direct reference to Repository Movie
+
+        public MoviesController()
         {
-            var movie = new Movie() { Name = "Shrek!" };
+            unitOfWork = new UnitOfWork();
+            movies = unitOfWork.Movies;
+        }
 
-            var customers = new List<Customer>
+        // GET: Movie
+        public ActionResult AllMovies()
+        {
+            var moviesList = movies.GetAll().ToList();
+            return View(moviesList);
+        }
+
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
             {
-                new Customer() { Id = 1, Name = "VL" },
-                new Customer() { Id = 2, Name = "LV" }
-            };
+                var movieList = movies.GetAll().ToList();
+                var movie = movieList.Find(findMovie => findMovie.MovieId == id);
 
-            var viewModel = new RandomMovieViewModel()
-            {
-                Movie = movie,
-                Customers = customers
-            };
+                return View(movie);
+            }
 
-            return View(viewModel);
+            return HttpNotFound();
+        }
 
+        // GET: Movie
+        public ActionResult RandomMovie()
+        {
+            var moviesList = movies.GetAll().ToList();
+
+            var movie = moviesList.Find(find => find.MovieId == new Random().Next(1,9));
+            
+            //var viewModel = new RandomMovieViewModel()
+            //{
+            //    Movie = movie,
+            //    Customers = customers
+            //};
+
+            return View(movie);
+            //return View("Random", viewModel);
             #region return oprions
             //return RedirectToAction("Index", "Home", new { page = 1, sortby = "name" });
             //return View(movie);
             //return new EmptyResult();
             //return HttpNotFound();
             //return Content("MegaMind!");
-
             #endregion
+        }
+
+        public ActionResult MovieOnline()
+        {
+            return View();
         }
 
         [Route("movies/released/{year}/{month}")]
         public ActionResult ByReleaseDate(int? year, int? month)
         {
             return Content(year + "/" + month);
-        }
-
-
-        public ActionResult Edit(int id)
-        {
-            return Content("id:" + id.ToString());
         }
 
         // movies this action 

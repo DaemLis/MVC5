@@ -196,10 +196,41 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Migrations\201902141838537_InitialModel.cs" />
+    <Compile Include="Migrations\201902141838537_InitialModel.Designer.cs">
+      <DependentUpon>201902141838537_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902141916058_AddIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\201902141916058_AddIsSubscribedToCustomer.Designer.cs">
+      <DependentUpon>201902141916058_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902141925367_AddMembershipType.cs" />
+    <Compile Include="Migrations\201902141925367_AddMembershipType.Designer.cs">
+      <DependentUpon>201902141925367_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902142222077_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201902142222077_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201902142222077_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes.cs" />
+    <Compile Include="Migrations\201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes.Designer.cs">
+      <DependentUpon>201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902150004041_DropColumnCustomer.cs" />
+    <Compile Include="Migrations\201902150004041_DropColumnCustomer.Designer.cs">
+      <DependentUpon>201902150004041_DropColumnCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902150011124_AddAgainFkForCustomers.cs" />
+    <Compile Include="Migrations\201902150011124_AddAgainFkForCustomers.Designer.cs">
+      <DependentUpon>201902150011124_AddAgainFkForCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Movie.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -208,7 +239,13 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\ICustomerRepository.cs" />
+    <Compile Include="Repository\IMovieRepository.cs" />
+    <Compile Include="Repository\MovieRepository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +308,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Customers\AllCustomers.cshtml" />
+    <Content Include="Views\Customers\Afisha.cshtml" />
+    <Content Include="Views\Movies\AllMovies.cshtml" />
+    <Content Include="Views\Movies\MovieOnline.cshtml" />
+    <Content Include="Views\Movies\RandomMovie.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +325,29 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902141838537_InitialModel.resx">
+      <DependentUpon>201902141838537_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902141916058_AddIsSubscribedToCustomer.resx">
+      <DependentUpon>201902141916058_AddIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902141925367_AddMembershipType.resx">
+      <DependentUpon>201902141925367_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902142222077_PopulateMembershipTypes.resx">
+      <DependentUpon>201902142222077_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes.resx">
+      <DependentUpon>201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902150004041_DropColumnCustomer.resx">
+      <DependentUpon>201902150004041_DropColumnCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902150011124_AddAgainFkForCustomers.resx">
+      <DependentUpon>201902150011124_AddAgainFkForCustomers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

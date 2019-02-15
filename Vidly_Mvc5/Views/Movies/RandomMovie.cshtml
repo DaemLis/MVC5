@@ -1,13 +1,8 @@
-﻿@model Vidly_Mvc5.Models.Movie
+﻿@model Vidly_Mvc5.ViewModels.RandomMovieViewModel
 @{
     ViewBag.Title = "Random Movie";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2 class="className">@Model.Name</h2>
-<h3 class="className">@Model.Description</h3>
-
-@*
 @{
     var className = Model.Customers.Count > 0 ? "popular" : null;
 }
@@ -28,4 +23,3 @@ else
         }
     </ul>
 }
-*@

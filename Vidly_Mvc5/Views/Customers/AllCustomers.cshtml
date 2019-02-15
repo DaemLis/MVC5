@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Vidly_Mvc5.Models.Customer>
+
+@{
+    ViewBag.Title = "All Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Customers</h2>
+
+@if (Model.ToList().Count == 0)
+{
+    <span>Sorry! But there are no any customers online now</span>
+}
+else
+{
+    <ul>
+    @foreach (var customer in Model)
+    {
+
+        <li>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id}, null); </li>
+    }
+    </ul>
+        
+}

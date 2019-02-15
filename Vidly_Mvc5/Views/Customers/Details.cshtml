@@ -1,0 +1,11 @@
+﻿@model Vidly_Mvc5.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details of Customer</h2>
+<span>@Model.Id </span>:<span>@Model.Name</span>
+
+<p>@DateTime.Now</p>
