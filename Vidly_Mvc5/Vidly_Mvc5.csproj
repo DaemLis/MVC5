@@ -220,8 +220,25 @@
     <Compile Include="Migrations\201902161639217_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201902161639217_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902162055095_AddedBirthdayToCustomerAndAnnotations.cs" />
+    <Compile Include="Migrations\201902162055095_AddedBirthdayToCustomerAndAnnotations.Designer.cs">
+      <DependentUpon>201902162055095_AddedBirthdayToCustomerAndAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902162056558_AddedNameToMembershipType.cs" />
+    <Compile Include="Migrations\201902162056558_AddedNameToMembershipType.Designer.cs">
+      <DependentUpon>201902162056558_AddedNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902162057415_AddedNameSqlUpdateToMembershipType.cs" />
+    <Compile Include="Migrations\201902162057415_AddedNameSqlUpdateToMembershipType.Designer.cs">
+      <DependentUpon>201902162057415_AddedNameSqlUpdateToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902162136289_AddedMovieGenreClassesAndTheirProperty.cs" />
+    <Compile Include="Migrations\201902162136289_AddedMovieGenreClassesAndTheirProperty.Designer.cs">
+      <DependentUpon>201902162136289_AddedMovieGenreClassesAndTheirProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -336,6 +353,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902161639217_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201902161639217_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902162055095_AddedBirthdayToCustomerAndAnnotations.resx">
+      <DependentUpon>201902162055095_AddedBirthdayToCustomerAndAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902162056558_AddedNameToMembershipType.resx">
+      <DependentUpon>201902162056558_AddedNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902162057415_AddedNameSqlUpdateToMembershipType.resx">
+      <DependentUpon>201902162057415_AddedNameSqlUpdateToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902162136289_AddedMovieGenreClassesAndTheirProperty.resx">
+      <DependentUpon>201902162136289_AddedMovieGenreClassesAndTheirProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

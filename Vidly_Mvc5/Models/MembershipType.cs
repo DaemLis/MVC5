@@ -11,7 +11,7 @@ namespace Vidly_Mvc5.Models
         public short SignUpFee { get; set; }
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
-
+        public string Name { get; set; }
         //Now we need to associate our Customer class with MembershipType
     }
 }

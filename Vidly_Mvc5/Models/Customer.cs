@@ -15,7 +15,12 @@ namespace Vidly_Mvc5.Models
         [MaxLength(100)]
         public string Name { get; set; }
 
+        [Display(Name = "Birthday")]
+        public DateTime? Birthday { get; set; }
+
         public bool IsSubscribedToNewsletter { get; set; }
+
+        [Display(Name = "Membership Type")]
         public MembershipType MembershipType { get; set; }
         //a navigation property, because it help us to navigate from one type to another
         //[ForeignKey("MembershipType")]

@@ -262,3 +262,7 @@ C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddIsS
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddMemberShipType.resources
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.PopulateMembershipTypes.resources
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.ApplyAnnotationsToCustomerName.resources
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedBirthdayToCustomerAndAnnotations.resources
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedNameToMembershipType.resources
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedNameSqlUpdateToMembershipType.resources
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedMovieGenreClassesAndTheirProperty.resources

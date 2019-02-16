@@ -23,8 +23,7 @@ namespace Vidly_Mvc5.Controllers
         public async Task<ActionResult> AllCustomers()
         {
             var customersList = await unitOfWork.Customers.GetAll();
-            //todo получить клиентов
-         
+        
             return View(customersList);
         }
 

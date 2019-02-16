@@ -30,13 +30,13 @@ namespace Vidly_Mvc5.Controllers
 
         public ActionResult Details(int? id)
         {
-            if (id.HasValue)
-            {
-                var movieList = movies.GetAll().ToList();
-                var movie = movieList.Find(findMovie => findMovie.MovieId == id);
+            //if (id.HasValue)
+            //{
+            //    var movieList = movies.GetAll().ToList();
+            //    var movie = movieList.Find(findMovie => findMovie.MovieId == id);
 
-                return View(movie);
-            }
+            //    return View(movie);
+            //}
 
             return HttpNotFound();
         }
@@ -46,7 +46,7 @@ namespace Vidly_Mvc5.Controllers
         {
             var moviesList = movies.GetAll().ToList();
 
-            var movie = moviesList.Find(find => find.MovieId == new Random().Next(1,9));
+            //var movie = moviesList.Find(find => find.MovieId == new Random().Next(1,9));
             
             //var viewModel = new RandomMovieViewModel()
             //{
@@ -54,7 +54,7 @@ namespace Vidly_Mvc5.Controllers
             //    Customers = customers
             //};
 
-            return View(movie);
+            return View();
             //return View("Random", viewModel);
             #region return oprions
             //return RedirectToAction("Index", "Home", new { page = 1, sortby = "name" });
