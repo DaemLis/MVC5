@@ -20,7 +20,7 @@ namespace Vidly_Mvc5.Repository
 
             using (var customerContext = new ApplicationDbContext())
             {
-                result = await customerContext.Customers.ToListAsync();
+                result = await customerContext.Customers.Include(c => c.MembershipType).ToListAsync(); //Include - Eager
             }
 
             return result;
