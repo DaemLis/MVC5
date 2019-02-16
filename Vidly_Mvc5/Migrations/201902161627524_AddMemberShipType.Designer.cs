@@ -7,13 +7,13 @@ namespace Vidly_Mvc5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ApplyAnnotationsToCustomerFKmembershipTypes : IMigrationMetadata
+    public sealed partial class AddMemberShipType : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ApplyAnnotationsToCustomerFKmembershipTypes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMemberShipType));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902150000301_ApplyAnnotationsToCustomerFKmembershipTypes"; }
+            get { return "201902161627524_AddMemberShipType"; }
         }
         
         string IMigrationMetadata.Source

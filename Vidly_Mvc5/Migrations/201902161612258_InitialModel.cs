@@ -9,7 +9,7 @@ namespace Vidly_Mvc5.Migrations
         {
             CreateTable(
                 "dbo.Customers",
-                c => new  
+                c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(maxLength: 100),

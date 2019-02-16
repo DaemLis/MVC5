@@ -7,13 +7,13 @@ namespace Vidly_Mvc5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class DropColumnCustomer : IMigrationMetadata
+    public sealed partial class InitialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DropColumnCustomer));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902150004041_DropColumnCustomer"; }
+            get { return "201902161612258_InitialModel"; }
         }
         
         string IMigrationMetadata.Source
