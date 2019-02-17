@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Vidly_Mvc5.Models;
@@ -13,48 +14,39 @@ namespace Vidly_Mvc5.Controllers
     {
 
         IUnitOfWork unitOfWork; // direct reference to UoW pattern
-        IMovieRepository<Movie> movies; // direct reference to Repository Movie
-
+ 
         public MoviesController()
         {
             unitOfWork = new UnitOfWork();
-            movies = unitOfWork.Movies;
         }
 
         // GET: Movie
-        public ActionResult AllMovies()
+        public async Task<ActionResult> GetMovies()
         {
-            var moviesList = movies.GetAll().ToList();
+            var moviesList = await unitOfWork.Movies.GetMovies();
             return View(moviesList);
         }
 
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
-            //if (id.HasValue)
-            //{
-            //    var movieList = movies.GetAll().ToList();
-            //    var movie = movieList.Find(findMovie => findMovie.MovieId == id);
-
-            //    return View(movie);
-            //}
+            if (id.HasValue)
+            {
+                var movieList = await unitOfWork.Movies.GetMovies();
+                var movie = movieList.FirstOrDefault(f => f.Id == id);
+                return View(movie);
+            }
 
             return HttpNotFound();
         }
 
         // GET: Movie
-        public ActionResult RandomMovie()
+        public async Task<ActionResult> RandomMovie()
         {
-            var moviesList = movies.GetAll().ToList();
+            var moviesList = await unitOfWork.Movies.GetMovies();
+            int rand = new Random().Next(1,7);
+            var movie = moviesList.FirstOrDefault(find => find.NumberInStock == rand);
 
-            //var movie = moviesList.Find(find => find.MovieId == new Random().Next(1,9));
-            
-            //var viewModel = new RandomMovieViewModel()
-            //{
-            //    Movie = movie,
-            //    Customers = customers
-            //};
-
-            return View();
+            return View(movie);
             //return View("Random", viewModel);
             #region return oprions
             //return RedirectToAction("Index", "Home", new { page = 1, sortby = "name" });

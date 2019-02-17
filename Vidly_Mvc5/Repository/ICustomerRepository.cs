@@ -9,7 +9,7 @@ namespace Vidly_Mvc5.Repository
     public interface ICustomerRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAll();
-        Task<T> CreateCustomer(T customer);
+        Task<T> NewCustomer(T customer);
         Task<T> UpdateCustomer(T customer);
         Task DeleteCustomer(int id);
     }

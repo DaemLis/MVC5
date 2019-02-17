@@ -18,6 +18,7 @@ namespace Vidly_Mvc5.Models
         [Display(Name = "Birthday")]
         public DateTime? Birthday { get; set; }
 
+        [Display(Name = "Subscribed to Newsletter")]
         public bool IsSubscribedToNewsletter { get; set; }
 
         [Display(Name = "Membership Type")]

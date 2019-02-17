@@ -41,6 +41,13 @@ namespace Vidly_Mvc5.Controllers
         //return View();
         }
 
+        //[HttpPost]
+        public async Task<ActionResult> New()
+        {
+            return View();
+        }
+
+
         public ActionResult Afisha()
         {
             return View();

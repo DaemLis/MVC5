@@ -251,7 +251,6 @@ C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csprojAssemblyReference.cache
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csproj.CoreCompileInputs.cache
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csproj.CopyComplete
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.dll
@@ -266,3 +265,5 @@ C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedB
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedNameToMembershipType.resources
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedNameSqlUpdateToMembershipType.resources
 C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedMovieGenreClassesAndTheirProperty.resources
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.csprojAssemblyReference.cache
+C:\Users\Lis\source\repos\MVC5\Vidly_Mvc5\obj\Debug\Vidly_Mvc5.Migrations.AddedAnnotationsForCustomer.resources

@@ -25,7 +25,7 @@ namespace Vidly_Mvc5.Repository
 
             return result;
         }
-        public async Task<Customer> CreateCustomer(Customer customer)
+        public async Task<Customer> NewCustomer(Customer customer)
         {
             Customer result = null;
 

@@ -1,42 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.UI.WebControls;
 using Vidly_Mvc5.Models;
 
 namespace Vidly_Mvc5.Repository
 {
     public class MovieRepository : IMovieRepository<Movie>
     {
-        private List<Movie> context;
         public MovieRepository()
         {
-            context = new List<Movie>
-                {
-
-                };
         }
 
         public MovieRepository CreateContext { get { return new MovieRepository(); } }
-        public IEnumerable<Movie> GetAll()
-        { 
-            return context;
+        public async Task<IEnumerable<Movie>> GetMovies()
+        {
+            var result = new List<Movie>();
+
+            using (var movieContext = new ApplicationDbContext())
+            {
+                result = await movieContext.Movie.Include(m => m.Genre).ToListAsync();
+            }
+
+            return result;
         }
 
-        public void CreateMovie(Movie movie)
+        public async Task<Movie> NewMovie(Movie movie)
         {
-            context.Add(movie);
+            Movie result = null; 
+            using (var movieContext = new ApplicationDbContext())
+            {
+               result = movieContext.Movie.Add(movie);
+               await movieContext.SaveChangesAsync();
+            }
+
+            return result;
         }
 
-        public void DeleteMovie(int id)
+        public async Task DeleteMovie(int id)
         {
-        // context.Remove(context.Find(find => find.MovieId == id));
+            using (var movieContext = new ApplicationDbContext())
+            {
+                var movie = movieContext.Movie.FirstOrDefaultAsync(f => f.Id == id);
+                movieContext.Entry(movie).State = EntityState.Deleted;
+                await movieContext.SaveChangesAsync();
+            }
         }
-        public void UpdateMovie(Movie movie)
+        public async Task<Movie> UpdateMovie(Movie movie)
         {
-            //var _movie = context.Find(find => find.MovieId == movie.MovieId);
-            //_movie.Name = movie.Name;
-            //_movie.Description = movie.Description;
+            using (var movieContext = new ApplicationDbContext())
+            {
+                movieContext.Entry(movie).State = EntityState.Modified;
+                await movieContext.SaveChangesAsync();
+            }
+
+            return movie;
         }
 
 
