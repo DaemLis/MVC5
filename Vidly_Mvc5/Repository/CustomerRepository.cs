@@ -25,7 +25,7 @@ namespace Vidly_Mvc5.Repository
 
             return result;
         }
-        public async Task<Customer> NewCustomer(Customer customer)
+        public async Task NewCustomer(Customer customer)
         {
             Customer result = null;
 
@@ -35,7 +35,7 @@ namespace Vidly_Mvc5.Repository
                 await customerContext.SaveChangesAsync();
             }
 
-            return result;
+          //  return result;
         }
         public async Task DeleteCustomer(int id)
         {

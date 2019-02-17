@@ -15,7 +15,7 @@ namespace Vidly_Mvc5.Models
         [MaxLength(100)]
         public string Name { get; set; }
 
-        [Display(Name = "Birthday")]
+        [Display(Name = "Date of Birth")]
         public DateTime? Birthday { get; set; }
 
         [Display(Name = "Subscribed to Newsletter")]

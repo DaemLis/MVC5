@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,6 +13,8 @@ namespace Vidly_Mvc5.Repository
     {
         MovieRepository Movies { get;}
         CustomerRepository Customers { get;}
+
+        IEnumerable<MembershipType> MembershipTypes { get; }
         void SaveChanges();
     }
 
@@ -20,6 +23,7 @@ namespace Vidly_Mvc5.Repository
         // private MyContext db = new MyContext(); // EF6 connection to Db
         private MovieRepository movieRepository;
         private CustomerRepository customerRepository;
+        private IEnumerable<MembershipType> membershipType;
 
         private readonly ApplicationDbContext _context;
 
@@ -40,6 +44,18 @@ namespace Vidly_Mvc5.Repository
                 if (customerRepository == null)
                     customerRepository = new CustomerRepository();
                 return customerRepository;
+            }
+        }
+
+        public IEnumerable<MembershipType> MembershipTypes
+        {
+            get
+            {
+                if (membershipType == null)
+                    using (var membershipTypeContext = new ApplicationDbContext())
+                        membershipType = membershipTypeContext.MembershipTypes.ToList(); 
+               return membershipType;
+                
             }
         }
 

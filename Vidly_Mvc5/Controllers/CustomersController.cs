@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly_Mvc5.Models;
 using Vidly_Mvc5.Repository;
+using Vidly_Mvc5.ViewModels;
 
 namespace Vidly_Mvc5.Controllers
 {
@@ -41,10 +42,24 @@ namespace Vidly_Mvc5.Controllers
         //return View();
         }
 
-        //[HttpPost]
         public async Task<ActionResult> New()
         {
-            return View();
+            var membershipTypes = unitOfWork.MembershipTypes;
+
+            var viewModel = new CustomerViewModel()
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(Customer customer)
+        {
+            await unitOfWork.Customers.NewCustomer(customer);
+
+            return RedirectToAction("AllCustomers", "Customers");
         }
 
 
