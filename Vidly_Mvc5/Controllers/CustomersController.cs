@@ -38,8 +38,6 @@ namespace Vidly_Mvc5.Controllers
                 return View(customer);
             }
             else { return HttpNotFound(); }
-
-        //return View();
         }
 
         public async Task<ActionResult> New()
@@ -48,20 +46,43 @@ namespace Vidly_Mvc5.Controllers
 
             var viewModel = new CustomerViewModel()
             {
-                MembershipTypes = membershipTypes
+                Customer = new Customer(),
+                MembershipTypes = membershipTypes.ToList()
             };
 
-            return View(viewModel);
+            return View("CustomerForm",viewModel);
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Customer customer)
+        public async Task<ActionResult> Save(CustomerViewModel customerViewmodel)
         {
-            await unitOfWork.Customers.NewCustomer(customer);
+            Customer customer = customerViewmodel.Customer;
 
-            return RedirectToAction("AllCustomers", "Customers");
+            if (customer.Id == 0)
+                 await unitOfWork.Customers.NewCustomer(customer);
+            else await unitOfWork.Customers.UpdateCustomer(customer);
+
+                return RedirectToAction("AllCustomers", "Customers");
+
         }
 
+        public async Task<ActionResult> Edit(int id)
+        {
+            var customerList = await unitOfWork.Customers.GetAll();
+            var customer = customerList.SingleOrDefault(f => f.Id == id);
+            if (customer == null)
+            {
+                return HttpNotFound(); // we get standart 404 error
+            }
+
+            var customerViewModel = new CustomerViewModel
+            {
+                Customer = customer,
+                MembershipTypes = unitOfWork.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", customerViewModel);
+        }
 
         public ActionResult Afisha()
         {

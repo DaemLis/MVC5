@@ -11,9 +11,10 @@ namespace Vidly_Mvc5.Repository
     public class CustomerRepository : ICustomerRepository<Customer>
     {
         public CustomerRepository()
-        {              
+        {
         }
 
+        
         public async Task<IEnumerable<Customer>> GetAll()
         {
             var result = new List<Customer>();
@@ -35,13 +36,13 @@ namespace Vidly_Mvc5.Repository
                 await customerContext.SaveChangesAsync();
             }
 
-          //  return result;
+            //  return result;
         }
         public async Task DeleteCustomer(int id)
         {
             using (var customerContext = new ApplicationDbContext())
             {
-                var customer = await customerContext.Customers.FirstOrDefaultAsync(find => find.Id == id);
+                var customer = await customerContext.Customers.SingleAsync(find => find.Id == id);
                 customerContext.Entry(customer).State = EntityState.Deleted;
                 await customerContext.SaveChangesAsync();
             }
@@ -50,6 +51,7 @@ namespace Vidly_Mvc5.Repository
         {
             using (var customerContext = new ApplicationDbContext())
             {
+                var customerInBd = customerContext.Customers.SingleAsync(f => f.Id == customer.Id);
                 customerContext.Entry(customer).State = EntityState.Modified;
                 await customerContext.SaveChangesAsync();
             }
