@@ -23,7 +23,7 @@ namespace Vidly_Mvc5.Repository
 
             using (var movieContext = new ApplicationDbContext())
             {
-                result = await movieContext.Movie.Include(m => m.Genre).ToListAsync();
+                result = await movieContext.Movies.Include(m => m.Genre).ToListAsync();
             }
 
             return result;
@@ -34,7 +34,7 @@ namespace Vidly_Mvc5.Repository
             Movie result = null; 
             using (var movieContext = new ApplicationDbContext())
             {
-               result = movieContext.Movie.Add(movie);
+               result = movieContext.Movies.Add(movie);
                await movieContext.SaveChangesAsync();
             }
 
@@ -45,7 +45,7 @@ namespace Vidly_Mvc5.Repository
         {
             using (var movieContext = new ApplicationDbContext())
             {
-                var movie = movieContext.Movie.FirstOrDefaultAsync(f => f.Id == id);
+                var movie = movieContext.Movies.FirstOrDefaultAsync(f => f.Id == id);
                 movieContext.Entry(movie).State = EntityState.Deleted;
                 await movieContext.SaveChangesAsync();
             }

@@ -58,7 +58,7 @@ namespace Vidly_Mvc5.Controllers
         {
             Customer customer = customerViewmodel.Customer;
 
-            if (customer.Id == 0)
+            if (customer.Id == 0)//but that id is not currently in a form 
                  await unitOfWork.Customers.NewCustomer(customer);
             else await unitOfWork.Customers.UpdateCustomer(customer);
 

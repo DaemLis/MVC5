@@ -20,7 +20,7 @@ namespace Vidly_Mvc5.Controllers
             unitOfWork = new UnitOfWork();
         }
 
-        // GET: Movie
+        // GET: Movies
         public async Task<ActionResult> GetMovies()
         {
             var moviesList = await unitOfWork.Movies.GetMovies();
@@ -39,7 +39,25 @@ namespace Vidly_Mvc5.Controllers
             return HttpNotFound();
         }
 
-        // GET: Movie
+        public async Task<ActionResult> New()
+        {
+            var genres = await new GenreRepository().GetGenres();
+
+            var viewModel = new MovieGenreViewModel
+            {
+                Movie = new Movie(),
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        public async Task<ActionResult> Save()
+        {
+            return HttpNotFound();
+        }
+
+        // GET: Movies
         public async Task<ActionResult> RandomMovie()
         {
             var moviesList = await unitOfWork.Movies.GetMovies();

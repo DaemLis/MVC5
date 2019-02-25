@@ -29,7 +29,7 @@ namespace Vidly_Mvc5.Repository
 
 
         public  MovieRepository Movies
-        {//dependency Property injection Movie
+        {//dependency Property injection Movies
             get
             {
                 if (movieRepository == null)

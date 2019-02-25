@@ -6,9 +6,9 @@ using Vidly_Mvc5.Models;
 
 namespace Vidly_Mvc5.ViewModels
 {
-    public class RandomMovieViewModel
+    public class MovieGenreViewModel
     {
-        public Movie Movie { get; set; }
-        public List<Customer> Customers { get; set; }
+        public Movie Movie  { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
     }
 }

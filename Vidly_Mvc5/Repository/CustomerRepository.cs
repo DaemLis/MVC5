@@ -51,8 +51,14 @@ namespace Vidly_Mvc5.Repository
         {
             using (var customerContext = new ApplicationDbContext())
             {
-                var customerInBd = customerContext.Customers.SingleAsync(f => f.Id == customer.Id);
-                customerContext.Entry(customer).State = EntityState.Modified;
+                var customerInBd = await customerContext.Customers.SingleAsync(f => f.Id == customer.Id);
+
+                //Mapper.Map(customer, customerInBd)
+                customerInBd.Name = customer.Name;
+                customerInBd.Birthday = customer.Birthday;
+                customerInBd.MembershipType = customer.MembershipType;
+                customerInBd.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+              //  customerContext.Entry(customer).State = EntityState.Modified;
                 await customerContext.SaveChangesAsync();
             }
 
